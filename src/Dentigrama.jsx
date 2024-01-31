@@ -1,14 +1,9 @@
 import './Dentigrama.css'
 import ToothM from './ToothM'
-import dataResponse from './data-users.json'
 
-export default function Dentigrama(){
-    const patient = dataResponse.filter((obj) => obj.username === "margot")
-    let superior
-    let inferior
-    patient?.filter((obj)=>(superior = obj.superior))
-    patient?.filter((obj)=>(inferior = obj.inferior))
+export default function Dentigrama({superior, inferior}){
   
+    
     return (
       <>
         <div className="grid superior">
