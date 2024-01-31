@@ -1,5 +1,6 @@
 
 import './App.css'
+import Aside from './Aside'
 import Dentigrama from './Dentigrama'
 import dataResponse from './data-users.json'
 
@@ -19,34 +20,7 @@ function App() {
     <>
       <header></header>
       <section className="middle-container">
-        <aside className="a-left">
-          <div className="patient-info">
-            <div className="patient-data">
-             <div className="patient-avatar">
-                  <img src="/public/Avatars/margot.png" alt="Profile Pic" />
-              </div>
-              <div className="patient-name">
-                <p>{name}</p>
-              </div>
-            </div>
-            <div className="patient-last-history">
-              <p>Última visita: <span>31/01/2024</span></p>
-              <ul>
-                <li>Revisión de rutina</li>
-                <li>Limpieza general</li>
-              </ul>
-            </div>
-          </div>
-          <div className="patient-record">
-            <div className="patient-record-header">Historial del Paciente</div>
-            <p><span>15/03/2023</span> </p>
-            <ul>
-              <li>Revisión de rutina</li>
-              <li>Limpieza general</li>
-            </ul>
-          </div>
-
-        </aside>
+        <Aside name = {name} />
         <main>  
           <h1>Odontologo</h1>
           <div id="radio">

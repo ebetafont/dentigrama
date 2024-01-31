@@ -1,0 +1,13 @@
+.patient-info, .patient-record{
+    padding:2rem;border-radius:8px;border:var(--border-site);background: var(--background-theme);
+}
+.patient-info{margin-bottom:20px;}
+.patient-data{display:flex;justify-content:flex-start;margin-bottom:10px;}
+.patient-avatar{border-radius:50%;width:70px;height:70px;border:1.5px solid var(--background-theme);}
+.patient-avatar img{border-radius:50%;width:100%;height:100%;object-fit:fill;}
+.patient-name{min-width:100px;padding:15px;font-size:1.5em;}
+.patient-last-history, .patient-record{text-align:center;}
+.patient-record-header{width:100%;border-bottom:var(--border-site);margin:10px 0;padding-bottom:10px;}
+.patient-last-history p, .patient-record p{margin:1.5em 0 1em 0;}
+.patient-record p{}
+.patient-last-history ul, .patient-record ul{margin-left:2em;}
