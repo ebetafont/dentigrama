@@ -12,7 +12,16 @@ header, footer{height:4rem;background:var(--background-theme);border:var(--borde
 aside, main{height:80vh;}
 aside{width:20%;margin:20px;}
 main{padding:2rem;width:80%;margin:20px 20px 20px 0px;border-radius:8px;border:var(--border-site);background: var(--background-theme);}
+main h1{padding-bottom: 20px;}
+/**********************************************/
+.radio-procedure-selector{
+  display:flex;justify-content:flex-start;align-items:stretch;align-content:stretch;background:var(--background-color);border: var(--border-site);border-radius: 2px;
+}
+.radio-procedure-selector label, .radio-procedure-selector input{cursor:pointer;}
+.radio-procedure-selector label{padding-left:10px;cursor:pointer;}
+.radio-procedure-selector div{
+  padding:5px;height:36px;width:100px;text-align:center;
+}
 
-
-
+/**********************************************/
 

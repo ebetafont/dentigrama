@@ -6,7 +6,7 @@ export default function Aside({name}){
             <div className="patient-info">
                 <div className="patient-data">
                 <div className="patient-avatar">
-                    <img src="/public/Avatars/margot.png" alt="Profile Pic" />
+                    <img src="/Avatars/margot.png" alt="Profile Pic" />
                 </div>
                 <div className="patient-name">
                     <p>{name}</p>

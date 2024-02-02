@@ -22,15 +22,16 @@ function App() {
       <section className="middle-container">
         <Aside name = {name} />
         <main>  
-          <h1>Odontologo</h1>
-          <div id="radio">
-              <input type="radio" id="radio1" name="accion" value="cavidad" /> <label htmlFor="radio1">Cavidad</label>
-              <input type="radio" id="radio2" name="accion" value="carie" defaultChecked /><label htmlFor="radio2">Carie</label>
-              <input type="radio" id="radio3" name="accion" value="relleno" /><label htmlFor="radio3">Relleno</label>
-              <input type="radio" id="radio4" name="accion" value="borrar" /><label htmlFor="radio4">Borrar</label>
+          <h1>Odontograma</h1>
+          <div className="radio-procedure-selector">
+              <div><input type="radio" id="radio1" name="accion" value="cavidad" /> <label htmlFor="radio1">Cavidad</label></div>
+              <div><input type="radio" id="radio2" name="accion" value="carie" defaultChecked /><label htmlFor="radio2">Carie</label></div>
+              <div><input type="radio" id="radio3" name="accion" value="relleno" /><label htmlFor="radio3">Relleno</label></div>
+              <div><input type="radio" id="radio4" name="accion" value="borrar" /><label htmlFor="radio4">Borrar</label></div>
           </div>
 
-          <Dentigrama superior={superior} inferior={inferior} />
+          <Dentigrama denti={superior} position="downside" />
+          <Dentigrama denti={inferior} position="upside" />
         </main>
       </section>
       <footer></footer>
