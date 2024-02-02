@@ -20,10 +20,10 @@
           {"id" : "13", "state" : []},
           {"id" : "14", "state" : []},
           {"id" : "15", "state" : []},
-          {"id" : "16", "state" : []},
-          {"id" : "17", "state" : []}
+          {"id" : "16", "state" : []}
       ],
       "inferior": [
+        {"id" : "17", "state" : []},
         {"id" : "18", "state" : []},
         {"id" : "19", "state" : []},
         {"id" : "20", "state" : []},
@@ -31,16 +31,14 @@
         {"id" : "22", "state" : []},
         {"id" : "23", "state" : []},
         {"id" : "24", "state" : []},
-        {"id" : "25", "state" : []},
-        {"id" : "26", "state" : []}, 
+        {"id" : "25", "state" : []}, 
+        {"id" : "26", "state" : []},
         {"id" : "27", "state" : []},
         {"id" : "28", "state" : []},
         {"id" : "29", "state" : []},
         {"id" : "30", "state" : []},
         {"id" : "31", "state" : []},
-        {"id" : "32", "state" : []},
-        {"id" : "33", "state" : []},
-        {"id" : "34", "state" : []}
+        {"id" : "32", "state" : []}
       ]
     },
     {
@@ -64,27 +62,27 @@
           {"id" : "13", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
           {"id" : "14", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
           {"id" : "15", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-          {"id" : "16", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-          {"id" : "17", "state" : ["borrar", "carie", "relleno", null, "cavidad"]}
+          {"id" : "16", "state" : ["borrar", "carie", "relleno", null, "cavidad"]}
+
       ],
       "inferior": [
+        {"id" : "17", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
         {"id" : "18", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
         {"id" : "19", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
         {"id" : "20", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
         {"id" : "21", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "22", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "23", "state" : [null, "carie", null, "relleno", "cavidad"]},
+        {"id" : "22", "state" : [null, "carie", null, "relleno", "cavidad"]},
+        {"id" : "23", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
         {"id" : "24", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "25", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "26", "state" : ["borrar", "carie", "relleno", null, "cavidad"]}, 
+        {"id" : "25", "state" : ["borrar", "carie", "relleno", null, "cavidad"]}, 
+        {"id" : "26", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
         {"id" : "27", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
         {"id" : "28", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "29", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "30", "state" : [null, "carie", null, "relleno", "cavidad"]},
+        {"id" : "29", "state" : [null, "carie", null, "relleno", "cavidad"]},
+        {"id" : "30", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
         {"id" : "31", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "32", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "33", "state" : ["borrar", "carie", "relleno", null, "cavidad"]},
-        {"id" : "34", "state" : ["borrar", "carie", "relleno", null, "cavidad"]}
+        {"id" : "32", "state" : ["borrar", "carie", "relleno", null, "cavidad"]}
+
       ]
     }
   ]

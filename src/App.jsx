@@ -29,9 +29,10 @@ function App() {
               <div><input type="radio" id="radio3" name="accion" value="relleno" /><label htmlFor="radio3">Relleno</label></div>
               <div><input type="radio" id="radio4" name="accion" value="borrar" /><label htmlFor="radio4">Borrar</label></div>
           </div>
-
-          <Dentigrama denti={superior} position="downside" />
-          <Dentigrama denti={inferior} position="upside" />
+          <div className='grid-container'>
+            <Dentigrama denti={superior} position="downside" />
+            <Dentigrama denti={inferior} position="upside" />
+          </div>
         </main>
       </section>
       <footer></footer>

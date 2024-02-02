@@ -9,7 +9,7 @@ body{display:flex;flex-direction:column;align-content:center;background: var(--b
 
 header, footer{height:4rem;background:var(--background-theme);border:var(--border-site);}
 .middle-container{display:flex;flex-direction:row;justify-content:space-between;align-content:center;width:100%;}
-aside, main{height:80vh;}
+aside, main{/* height:80vh; */}
 aside{width:20%;margin:20px;}
 main{padding:2rem;width:80%;margin:20px 20px 20px 0px;border-radius:8px;border:var(--border-site);background: var(--background-theme);}
 main h1{padding-bottom: 20px;}

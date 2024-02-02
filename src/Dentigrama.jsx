@@ -4,16 +4,16 @@ import { useState} from 'react'
 export default function Dentigrama({denti, position}){
 
   return (
-    <div className='grid-container'>
+    <>
       {position === "upside" ? (<ToothPic position={position} />) : ""}
-      <div className="grid">
-        { denti?.map((obj) => (
-            <ToothM key={obj.id} id={obj.id} state={obj.state} />
-          )
-        )}
-      </div>
+      
+      {denti?.map((obj) => (
+          <ToothM key={obj.id} id={obj.id} state={obj.state} />
+        )
+      )}
+      
       {position === "downside" ? (<ToothPic position={position} />) : ""}
-    </div>
+    </>
   ) 
 }
 
@@ -28,15 +28,13 @@ function ToothPic({position}){
 
    return (
     <>
-      <div className="grid">
-        { chainT?.map((element) =>
-          (<div className="tooth-p-wrapper"><img src={`tooth/${element}.bmp`} alt="Tooth Pic" /></div>)
-        )}
-        
-        { chainT?.reverse().map((element) =>
-          (<div className="tooth-p-wrapper turn"><img src={`tooth/${element}.bmp`} alt="Tooth Pic" /></div>)
-        )}
-      </div>
+      { chainT?.map((element) =>
+        (<div className="grid-item"><div className="tooth-p-wrapper"><img src={`tooth/${element}.bmp`} alt="Tooth Pic" /></div></div>)
+      )}
+    
+      { chainT?.reverse().map((element) =>
+        (<div className="grid-item"><div className="tooth-p-wrapper turn"><img src={`tooth/${element}.bmp`} alt="Tooth Pic" /></div></div>)
+      )}
     </>
   )
 
@@ -57,6 +55,7 @@ function ToothM({id, state=[]}){
   }
   
   return (
+    <div className="grid-item">
       <div className="tooth-wrapper">
           <div className="tooth" id={id}>
               <div className={`tooth-part part-0 ${toothState[0]}`} data="0" onClick={handleClick}></div>
@@ -66,5 +65,6 @@ function ToothM({id, state=[]}){
               <div className={`tooth-part part-4 ${toothState[4]}`} data="4" onClick={handleClick}></div>
           </div>
       </div>
+    </div>
   )
 }
