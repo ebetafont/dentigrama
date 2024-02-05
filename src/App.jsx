@@ -23,7 +23,7 @@ function App() {
   //--Simulo captar los datos de un registro dental del paciente--
   const record =  dataResponse2.filter((obj) => obj.patient === userId)
   let recIt = (record.length)-1
-
+  let recordId = record[recIt].id
   let title = record[recIt].title
   let superior = record[recIt].superior
   let inferior= record[recIt].inferior
@@ -43,8 +43,8 @@ function App() {
               <div><input type="radio" id="radio4" name="accion" value="borrar" /><label htmlFor="radio4">Borrar</label></div>
           </div>
           <div className={stage==="child"? "grid-container-child" : "grid-container"}>
-            <Dentigrama stage={stage} denti={superior} position="downside" />
-            <Dentigrama stage={stage} denti={inferior} position="upside" />
+            <Dentigrama recordId={recordId} stage={stage} denti={superior} position="downside" />
+            <Dentigrama recordId={recordId} stage={stage} denti={inferior} position="upside" />
           </div>
         </main>
       </section>
