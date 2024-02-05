@@ -1,23 +1,20 @@
 import './Aside.css'
 
-export default function Aside({name}){
+export default function Aside({name,username,title,date}){
     return(
         <aside className="a-left">
             <div className="patient-info">
                 <div className="patient-data">
                 <div className="patient-avatar">
-                    <img src="/Avatars/margot.png" alt="Profile Pic" />
+                    <img src={`/Avatars/${username}.png`} alt="Profile Pic" />
                 </div>
                 <div className="patient-name">
                     <p>{name}</p>
                 </div>
                 </div>
                 <div className="patient-last-history">
-                <p>Última visita: <span>31/01/2024</span></p>
-                <ul>
-                    <li>Revisión de rutina</li>
-                    <li>Limpieza general</li>
-                </ul>
+                <p>Última visita: <span>{date}</span></p>
+                <p>{title}</p>
                 </div>
             </div>
             <div className="patient-record">

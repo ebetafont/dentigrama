@@ -1,43 +1,43 @@
 import './Dentigrama.css'
 import { useState} from 'react'
 
-export default function Dentigrama({denti, position}){
+export default function Dentigrama({stage, denti, position}){
 
   return (
     <>
-      {position === "upside" ? (<ToothPic position={position} />) : ""}
+      {position === "upside" ? (<ToothPic stage={stage} position={position} />) : ""}
       
       {denti?.map((obj) => (
           <ToothM key={obj.id} id={obj.id} state={obj.state} />
         )
       )}
       
-      {position === "downside" ? (<ToothPic position={position} />) : ""}
+      {position === "downside" ? (<ToothPic stage={stage} position={position} />) : ""}
     </>
-  ) 
+  )
 }
 
-function ToothPic({position}){
-  let chain = ["01","02","03","04","05","06","07","08","17","18","19","20","21","22","23","24"]
+function ToothPic({stage, position}){
   let chainT = []
+  let chain = ["01","02","03","04","05","06","07","08","17","18","19","20","21","22","23","24"]
+
   if(position === "upside") {
-    for(let i=8; i < 16; i++){chainT.push(chain[i])}
+    for(let i=(stage==="child"? 11:8); i < 16; i++){chainT.push(chain[i])}
   }else{
-    for(let i=0; i < 8; i++){chainT.push(chain[i])}
+    for(let i=(stage==="child"? 3:0); i < 8; i++){chainT.push(chain[i])}
   }
 
    return (
     <>
-      { chainT?.map((element) =>
-        (<div className="grid-item"><div className="tooth-p-wrapper"><img src={`tooth/${element}.bmp`} alt="Tooth Pic" /></div></div>)
+      { chainT?.map((element,index) =>
+        (<div key={`${index+10}`} className="grid-item"><div className="tooth-p-wrapper"><img src={`tooth/${element}.bmp`} alt="Tooth Pic" /></div></div>)
       )}
     
-      { chainT?.reverse().map((element) =>
-        (<div className="grid-item"><div className="tooth-p-wrapper turn"><img src={`tooth/${element}.bmp`} alt="Tooth Pic" /></div></div>)
+      { chainT?.reverse().map((element,index) =>
+        (<div key={`${index+20}`} className="grid-item"><div className="tooth-p-wrapper turn"><img src={`tooth/${element}.bmp`} alt="Tooth Pic" /></div></div>)
       )}
     </>
   )
-
 }
 
 function ToothM({id, state=[]}){
