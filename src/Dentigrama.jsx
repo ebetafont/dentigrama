@@ -61,8 +61,8 @@ function ToothM({id, state=[], recordId}){
 
   //Guardar en BD, enviar a API
   function saveToothState(caraIndex){
-    //SET record.superior[caraIndex] = toothState WHERE record.id = recordId AND record.superior[caraIndex] = id)
-    //SET record.inferior[caraIndex] = toothState WHERE record.id = recordId AND record.inferior[caraIndex] = id) 
+    //SET record.superior/caraIndex/.state = toothState WHERE record.id = recordId AND record.superior/caraIndex/id = id)
+    //SET record.inferior/caraIndex/.state = toothState WHERE record.id = recordId AND record.inferior/caraIndex/id = id) 
     //console.log(toothState)
   }
 

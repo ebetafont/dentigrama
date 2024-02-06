@@ -1,26 +1,26 @@
 [
-    {
-      "id": 1,
-      "name": "Baby grogu",
-      "username": "grogu",
-      "email": "ebetafont@gmail.com",
-      "stage of life": "child",
-      "record": [1,2]
-    },
-    {
-      "id": 2,
-      "name": "Margot Robbie",
-      "username": "margot",
-      "email": "ebetafont@gmail.com",
-      "stage of life": "adult",
-      "record": [3,4]
-    },
-    {
-      "id": 3,
-      "name": "Ernesto Betancourt",
-      "username": "ernesto",
-      "email": "ebetafont@gmail.com",
-      "stage of life": "adult",
-      "record": [5]
-    }
-  ]
+  {
+    "id": 1,
+    "name": "Baby grogu",
+    "username": "grogu",
+    "email": "ebetafont@gmail.com",
+    "stage of life": "child",
+    "record": [1,2]
+  },
+  {
+    "id": 2,
+    "name": "Margot Robbie",
+    "username": "margot",
+    "email": "ebetafont@gmail.com",
+    "stage of life": "adult",
+    "record": [3,4]
+  },
+  {
+    "id": 3,
+    "name": "Ernesto Betancourt",
+    "username": "ernesto",
+    "email": "ebetafont@gmail.com",
+    "stage of life": "adult",
+    "record": [5]
+  }
+]
