@@ -4,36 +4,48 @@ import Aside from './Aside'
 import Dentigrama from './Dentigrama'
 import dataResponse from './data-users.json'
 import dataResponse2 from './data-records.json'
+import {Patient, Record} from './Classes/Patient'
 
 function App() {
-  //--Simulo captar los datos del paciente--
-  const patient = dataResponse.filter((obj) => obj.username === "grogu")
-  let userId
-  let name
-  let username
-  let stage
+  let filterData = "grogu"
+  let filterRecordDate = "01/01/2024"
 
-  patient.map((obj) => {
-    userId = obj.id
-    name = obj.name
-    username = obj.username
-    stage = obj["stage of life"]
-  })
+  const miPatient = createPatientOb(filterData)
+  const miRecord = miPatient.record.filter((obj)=>obj.date === filterRecordDate)
 
-  //--Simulo captar los datos de un registro dental del paciente--
-  const record =  dataResponse2.filter((obj) => obj.patient === userId)
-  let recIt = (record.length)-1
-  let recordId = record[recIt].id
-  let title = record[recIt].title
-  let superior = record[recIt].superior
-  let inferior= record[recIt].inferior
-  let date = record[recIt].date
+  function createPatientOb(filterData){
+    //--Simulo captar los datos del paciente--
+    const patient = dataResponse.filter((obj) => obj.username === filterData)
+    let userId
+    let name
+    let username
+    let stage
+
+    patient.map((obj) => {
+      userId = obj.id
+      name = obj.name
+      username = obj.username
+      stage = obj["stage of life"]
+    })
+
+    let patientOb = new Patient (userId, name, username, stage)
+
+    //--Simulo captar los datos de un registro dental del paciente--
+    const recordsList =  dataResponse2.filter((obj) => obj.patient === patientOb.id)
+    recordsList.map(
+      (obj) => {
+        let record = new Record(obj.id, obj.title, obj.date, obj.patient, obj.superior, obj.inferior)
+        patientOb.record.push(record)
+      }
+    )
+    return patientOb
+  }
 
   return (
     <>
       <header></header>
       <section className="middle-container">
-        <Aside name={name} username={username} title={title} date={date} />
+        <Aside name={miPatient.name} username={miPatient.username} title={miRecord.title} date={miRecord.date} />
         <main>  
           <h1>Odontograma</h1>
           <div className="radio-procedure-selector">
@@ -43,8 +55,8 @@ function App() {
               <div><input type="radio" id="radio4" name="accion" value="borrar" /><label htmlFor="radio4">Borrar</label></div>
           </div>
           <div className={stage==="child"? "grid-container-child" : "grid-container"}>
-            <Dentigrama recordId={recordId} stage={stage} denti={superior} position="downside" />
-            <Dentigrama recordId={recordId} stage={stage} denti={inferior} position="upside" />
+            <Dentigrama recordId={miRecord.recordId} stage={miPatient.stage} denti={miRecord.superior} position="downside" />
+            <Dentigrama recordId={miRecord.recordId} stage={miPatient.stage} denti={miRecord.inferior} position="upside" />
           </div>
         </main>
       </section>
