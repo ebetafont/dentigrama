@@ -4,36 +4,44 @@ import Aside from './Aside'
 import Dentigrama from './Dentigrama'
 import dataResponse from './data-users.json'
 import dataResponse2 from './data-records.json'
+import {Patient, Record} from './Classes/Patient'
 
 import { useState } from 'react'
 
 function App() {
-  const [testSubjet, setTestSubjet] = useState("grogu")
+  let filterData = "grogu"
+  let filterRecordDate = "01/01/2024"
 
-  //--Simulo captar los datos del paciente--
+  const miPatient = createPatientOb(filterData)
+  const miRecord = miPatient.record.filter((obj) => obj.date === filterRecordDate)
 
-  //grogu/margot/ernesto
-  const patient = dataResponse.filter((obj) => obj.username === testSubjet)
-  let userId
-  let name
-  let username
-  let stage
+  function createPatientOb(filterData){
+    //--Simulo captar los datos del paciente--
+    const patient = dataResponse.filter((obj) => obj.username === filterData)
+    let userId
+    let name
+    let username
+    let stage
 
-  patient.map((obj) => {
-    userId = obj.id
-    name = obj.name
-    username = obj.username
-    stage = obj["stage of life"]
-  })
+    patient.map((obj) => {
+      userId = obj.id
+      name = obj.name
+      username = obj.username
+      stage = obj["stage of life"]
+    })
 
-  //--Simulo captar los datos de un registro dental del paciente--
-  const record =  dataResponse2.filter((obj) => obj.patient === userId)
-  let recIt = (record.length)-1
-  let recordId = record[recIt].id
-  let title = record[recIt].title
-  let superior = record[recIt].superior
-  let inferior= record[recIt].inferior
-  let date = record[recIt].date
+    let patientOb = new Patient (userId, name, username, stage)
+
+    //--Simulo captar los datos de un registro dental del paciente--
+    const recordsList =  dataResponse2.filter((obj) => obj.patient === patientOb.id)
+    recordsList.map(
+      (obj) => {
+        let record = new Record(obj.id, obj.title, obj.date, obj.patient, obj.superior, obj.inferior)
+        patientOb.record.push(record)
+      }
+    )
+    return patientOb
+  }
 
   function handleSearch(e){
     e.preventDefault()
@@ -51,7 +59,7 @@ function App() {
         </div> 
       </header>
       <section className="middle-container">
-        <Aside name={name} username={username} title={title} date={date} />
+        <Aside name={miPatient.name} username={miPatient.username} title={miRecord[0].title} date={miRecord[0].date} />
         <main>  
           <h1>Odontograma</h1>
           <div className="radio-procedure-selector">
@@ -60,9 +68,9 @@ function App() {
               <div><input type="radio" id="radio3" name="accion" value="relleno" /><label htmlFor="radio3">Relleno</label></div>
               <div><input type="radio" id="radio4" name="accion" value="borrar" /><label htmlFor="radio4">Borrar</label></div>
           </div>
-          <div className={stage==="child" ? "grid-container-child" : "grid-container"}>
-            <Dentigrama recordId={recordId} stage={stage} denti={superior} position="downside" />
-            <Dentigrama recordId={recordId} stage={stage} denti={inferior} position="upside" />
+          <div className={miPatient.stage==="child"? "grid-container-child" : "grid-container"}>
+            <Dentigrama recordId={miRecord[0].recordId} stage={miPatient.stage} denti={miRecord[0].superior} position="downside" />
+            <Dentigrama recordId={miRecord[0].recordId} stage={miPatient.stage} denti={miRecord[0].inferior} position="upside" />
           </div>
         </main>
       </section>
