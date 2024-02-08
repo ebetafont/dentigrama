@@ -10,17 +10,19 @@ import { useState } from 'react'
 
 function App() {
   const [search, setSearch] = useState('grogu')
-  //let filterData = "grogu"
-  let filterRecordDate = "01/01/2024"
   const miPatient = createPatientOb(search)
+  const miRecord = miPatient.record[miPatient.record.length - 1]
+
+  /*
+  //TODO Filtrar Record x fecha
+  let filterRecordDate = "01/01/2024"
   const miRecord = miPatient.record.filter((obj) => obj.date === filterRecordDate)
-  //if(miPatient.id === 'undefined'){}
-  console.log(miPatient.id)
+  */
 
   function createPatientOb(search){
     //--Simulo captar los datos del paciente--
     const patient = dataResponse.filter((obj) => obj.username === search)
-    
+ 
     let userId
     let name
     let username
@@ -48,7 +50,6 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    
     console.log(`You searched for '${search}'`)
   }
 
@@ -62,15 +63,19 @@ function App() {
         </div> 
       </header>
       <section className="middle-container">
-        {miPatient.id === 'undefined' ? 
-          (<aside className="a-left"></aside>)
-          : (<Aside name={miPatient.name} username={miPatient.username} title={miRecord[0].title} date={miRecord[0].date} />)
+        {miPatient.id === undefined ? 
+          (<aside className="a-left">
+            <div className="patient-info"><div className="patient-data"><div className="patient-avatar">
+              <img src={`/Avatars/not_found.png`} alt="Not found Pic" />
+               </div><div className="patient-name"><p>Paciente no encontrado</p></div></div></div></aside>)
+          : 
+          (<Aside name={miPatient.name} username={miPatient.username} title={miRecord.title} date={miRecord.date} />)
         }
         <main>  
           <h1>Odontograma</h1>
-          {miPatient.id === 'undefined' ? 
-            (<aside className="a-left"></aside>)  
-           : 
+          {miPatient.id === undefined ? 
+            (<><div className="radio-procedure-selector"></div><div className="grid-container"></div></>)
+            : 
             (<>
               <div className="radio-procedure-selector">
                   <div><input type="radio" id="radio1" name="accion" value="cavidad" /> <label htmlFor="radio1">Cavidad</label></div>
@@ -79,8 +84,8 @@ function App() {
                   <div><input type="radio" id="radio4" name="accion" value="borrar" /><label htmlFor="radio4">Borrar</label></div>
               </div>
               <div className={miPatient.stage==="child"? "grid-container-child" : "grid-container"}>
-                <Dentigrama recordId={miRecord[0].recordId} stage={miPatient.stage} denti={miRecord[0].superior} position="downside" />
-                <Dentigrama recordId={miRecord[0].recordId} stage={miPatient.stage} denti={miRecord[0].inferior} position="upside" />
+                <Dentigrama recordId={miRecord.recordId} stage={miPatient.stage} denti={miRecord.superior} position="downside" />
+                <Dentigrama recordId={miRecord.recordId} stage={miPatient.stage} denti={miRecord.inferior} position="upside" />
               </div>
             </>)
           } 

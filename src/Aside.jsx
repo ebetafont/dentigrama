@@ -5,16 +5,16 @@ export default function Aside({name,username,title,date}){
         <aside className="a-left">
             <div className="patient-info">
                 <div className="patient-data">
-                <div className="patient-avatar">
-                    <img src={`/Avatars/${username}.png`} alt="Profile Pic" />
-                </div>
-                <div className="patient-name">
-                    <p>{name}</p>
-                </div>
+                    <div className="patient-avatar">
+                        <img src={`/Avatars/${username}.png`} alt="Profile Pic" />
+                    </div>
+                    <div className="patient-name">
+                        <p>{name}</p>
+                    </div>
                 </div>
                 <div className="patient-last-history">
-                <p>Última visita: <span>{date}</span></p>
-                <p>{title}</p>
+                    <p>Última visita: <span>{date}</span></p>
+                    <p>{title}</p>
                 </div>
             </div>
             <div className="patient-record">
